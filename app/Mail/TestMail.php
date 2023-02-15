@@ -18,10 +18,25 @@ class TestMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $data;
+    public function __construct($data)
     {
-        //
+        $this->data - $data;
     }
+
+
+    /**
+     * Build the message
+     * 
+     * @return $this
+    */
+    public function build()
+    {
+        return $this->from(env('MAIL_FROM_ADDRESS'),env('MAIL_FROM_NAME'))
+                    ->view('testmail')
+                    ->subject('Titulo del correo')
+                    ->with($this->data);
+    } 
 
     /**
      * Get the message envelope.

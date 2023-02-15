@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MaioController@gmail.com');
+Route::get('/', 'app\Http\Controllers\MailController@getMail');
